@@ -53,16 +53,21 @@ print ("""
 22-Juniper IVE
 23-BLAKE2b-512
 24-BLAKE2b-512($pass.$salt) *
-25-MD4
-26-NTLM
-27-Domain Cached Credentials (DCC), MS Cache
-28-SHA2-224
-29-SHA2-256
-30-sha256($pass.$salt)
-31-sha256($salt.$pass)
-32-sha256(utf16le($pass).$salt)
-33-sha256($salt.utf16le($pass))
-34- 
+25-BLAKE2b-512($salt.$pass)
+26-MD4
+27-NTLM
+28-Domain Cached Credentials (DCC), MS Cache
+29-SHA2-224
+30-SHA2-256
+31-sha256($pass.$salt)
+32-sha256($salt.$pass)
+33-sha256(utf16le($pass).$salt)
+34-sha256($salt.utf16le($pass))
+35-HMAC-SHA256 (key = $pass)
+36-HMAC-SHA256 (key = $salt)
+37-sha256(utf16le($pass))
+38-descrypt, DES (Unix), Traditional DES
+39-Apache $apr1$ MD5, md5apr1, MD5 (APR) 2 
 """)#menu
 hash=input("Please Enter hash type to find its mode or select from the menu\n")#hash
 
@@ -118,24 +123,37 @@ if (hash =='BLAKE2b-512($pass.$salt) *') | (hash =='24') :
        print ('\033[31m'+"your mode is  610")
 if (hash ==' BLAKE2b-512($salt.$pass) *') | (hash =='25') : 
        print ('\033[31m'+"your mode is  620")
-if (hash =='MD4') | (hash =='25') : 
+if (hash =='MD4') | (hash =='26') : 
        print ('\033[31m'+"your mode is  900")
-if (hash =='NTLM') | (hash =='26') : 
+if (hash =='NTLM') | (hash =='27') : 
        print ('\033[31m'+"your mode is 1000")
-if (hash =='Domain Cached Credentials (DCC), MS Cache') | (hash =='27') : 
+if (hash =='Domain Cached Credentials (DCC), MS Cache') | (hash =='28') : 
        print ('\033[31m'+"your mode is 1100 ")
-if (hash =='SHA2-224') | (hash =='28') : 
+if (hash =='SHA2-224') | (hash =='29') : 
        print ('\033[31m'+"your mode is 1300 ")
-if (hash =='SHA2-256') | (hash =='29') : 
+if (hash =='SHA2-256') | (hash =='30') : 
        print ('\033[31m'+"your mode is 1400")
-if (hash =='sha256($pass.$salt)') | (hash =='30') : 
+if (hash =='sha256($pass.$salt)') | (hash =='31') : 
        print ('\033[31m'+"your mode is 1410 ")
-if (hash =='sha256($salt.$pass)') | (hash =='31') : 
+if (hash =='sha256($salt.$pass)') | (hash =='32') : 
        print ('\033[31m'+"your mode is 1420")
-if (hash =='sha256(utf16le($pass).$salt)') | (hash =='32') : 
+if (hash =='sha256(utf16le($pass).$salt)') | (hash =='33') : 
        print ('\033[31m'+"your mode is 1430")
-if (hash =='sha256($salt.utf16le($pass))') | (hash =='33') : 
+if (hash =='sha256($salt.utf16le($pass))') | (hash =='34') : 
        print ('\033[31m'+"your mode is 1440")
+if (hash =='HMAC-SHA256 (key = $pass)') | (hash =='35') : 
+       print ('\033[31m'+"your mode is 1450")
+if (hash =='HMAC-SHA256 (key = $salt)') | (hash =='36') : 
+       print ('\033[31m'+"your mode is 1460")
+if (hash =='sha256(utf16le($pass))') | (hash =='37') : 
+       print ('\033[31m'+"your mode is 1470")
+if (hash =='descrypt, DES (Unix), Traditional DES') | (hash =='38') : 
+       print ('\033[31m'+"your mode is 1500")
+if (hash =='Apache $apr1$ MD5, md5apr1, MD5 (APR) 2') | (hash =='39') : 
+       print ('\033[31m'+"your mode is 1600")
+
+
+
 
 
 
