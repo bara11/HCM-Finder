@@ -16,7 +16,7 @@ banner="""
    █   █    █        █    █  
   ▄▀  ▄▀   ▄▀▄▄▄▄▀ ▄▀   ▄▀   
  █   █    █     ▐  █    █    
- ▐   ▐    ▐        ▐    ▐                
+ ▐   ▐    ▐        ▐    ▐       v1.0         
                                                                                                                           
                                                                                                                                                              
 ███╗   ███╗ █████╗ ██████╗ ███████╗    ██████╗ ██╗   ██╗     ██████╗██╗   ██╗██████╗ ███████╗██████╗     ███████╗ ██████╗ ██╗     ██████╗ ██╗███████╗██████╗ 
@@ -67,7 +67,8 @@ print ("""
 36-HMAC-SHA256 (key = $salt)
 37-sha256(utf16le($pass))
 38-descrypt, DES (Unix), Traditional DES
-39-Apache $apr1$ MD5, md5apr1, MD5 (APR) 2 
+39-Apache $apr1$ MD5, md5apr1, MD5 (APR) 2
+40-SHA2-512
 """)#menu
 hash=input("Please Enter hash type to find its mode or select from the menu\n")#hash
 
@@ -151,6 +152,8 @@ if (hash =='descrypt, DES (Unix), Traditional DES') | (hash =='38') :
        print ('\033[31m'+"your mode is 1500")
 if (hash =='Apache $apr1$ MD5, md5apr1, MD5 (APR) 2') | (hash =='39') : 
        print ('\033[31m'+"your mode is 1600")
+if (hash =='SHA2-512') | (hash =='40') : 
+       print ('\033[31m'+"your mode is 1700")
 
 
 
