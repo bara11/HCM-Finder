@@ -27,8 +27,8 @@ banner="""
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝    ╚═════╝    ╚═╝        ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚══════╝╚═════╝ ╚═╝╚══════╝╚═╝  ╚═╝
 """
 print(banner)
+print("note the script is case-sensitive and use grep for more easily to find what do u want and use the name or number  of the hash"  )
 print ("""
-note the script is case-sensitive and use grep for more easily to find what do u want and use the name or number  of the hash
 1-MD5               
 2-md5($pass.$salt) 
 3-md5($salt.$pass)
@@ -53,6 +53,16 @@ note the script is case-sensitive and use grep for more easily to find what do u
 22-Juniper IVE
 23-BLAKE2b-512
 24-BLAKE2b-512($pass.$salt) *
+25-MD4
+26-NTLM
+27-Domain Cached Credentials (DCC), MS Cache
+28-SHA2-224
+29-SHA2-256
+30-sha256($pass.$salt)
+31-sha256($salt.$pass)
+32-sha256(utf16le($pass).$salt)
+33-sha256($salt.utf16le($pass))
+34- 
 """)#menu
 hash=input("Please Enter hash type to find its mode or select from the menu\n")#hash
 
@@ -108,6 +118,26 @@ if (hash =='BLAKE2b-512($pass.$salt) *') | (hash =='24') :
        print ('\033[31m'+"your mode is  610")
 if (hash ==' BLAKE2b-512($salt.$pass) *') | (hash =='25') : 
        print ('\033[31m'+"your mode is  620")
+if (hash =='MD4') | (hash =='25') : 
+       print ('\033[31m'+"your mode is  900")
+if (hash =='NTLM') | (hash =='26') : 
+       print ('\033[31m'+"your mode is 1000")
+if (hash =='Domain Cached Credentials (DCC), MS Cache') | (hash =='27') : 
+       print ('\033[31m'+"your mode is 1100 ")
+if (hash =='SHA2-224') | (hash =='28') : 
+       print ('\033[31m'+"your mode is 1300 ")
+if (hash =='SHA2-256') | (hash =='29') : 
+       print ('\033[31m'+"your mode is 1400")
+if (hash =='sha256($pass.$salt)') | (hash =='30') : 
+       print ('\033[31m'+"your mode is 1410 ")
+if (hash =='sha256($salt.$pass)') | (hash =='31') : 
+       print ('\033[31m'+"your mode is 1420")
+if (hash =='sha256(utf16le($pass).$salt)') | (hash =='32') : 
+       print ('\033[31m'+"your mode is 1430")
+if (hash =='sha256($salt.utf16le($pass))') | (hash =='33') : 
+       print ('\033[31m'+"your mode is 1440")
+
+
 
 
 
