@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 from colorama import init, Fore, Back, Style
+import os
 banner="""
 
  ▄▀▀▄ ▄▄   ▄▀▄▄▄▄   ▄▀▀▄ ▄▀▄                                                 
@@ -27,7 +28,7 @@ banner="""
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝    ╚═════╝    ╚═╝        ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚══════╝╚═════╝ ╚═╝╚══════╝╚═╝  ╚═╝
 """
 print(banner)
-print("note the script is case-sensitive and use grep for more easily to find what do u want and use the name or number  of the hash"  )
+print("note: the script is case-sensitive and use grep for more easily to find what do u want and use the name or number  of the hash " )
 print ("""
 1-MD5               
 2-md5($pass.$salt) 
@@ -49,7 +50,7 @@ print ("""
 18-MySQL4.1/MySQL5
 19-phpass, WordPress (MD5),Joomla (MD5)
 20-phpass, phpBB3 (MD5)
-21-md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)^2
+21-md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)
 22-Juniper IVE
 23-BLAKE2b-512
 24-BLAKE2b-512($pass.$salt) *
@@ -69,6 +70,67 @@ print ("""
 38-descrypt, DES (Unix), Traditional DES
 39-Apache $apr1$ MD5, md5apr1, MD5 (APR) 2
 40-SHA2-512
+41-sha512($pass.$salt)
+42-sha512($salt.$pass)
+43-sha512(utf16le($pass).$salt)
+44-sha512($salt.utf16le($pass))
+45-HMAC-SHA512 (key = $pass)
+46-HMAC-SHA512 (key = $salt)
+47-sha512(utf16le($pass))
+48-sha512crypt $6$, SHA512 (Unix)
+49-STDOUT
+50-Domain Cached Credentials 2 (DCC2), MS Cache 2
+51-Cisco-PIX MD5
+52-Cisco-ASA MD5
+53-WPA-EAPOL-PBKDF2
+54-WPA-EAPOL-PMK
+55-md5(md5($pass))
+56-LM
+57-Oracle H: Type (Oracle 7+)
+58-bcrypt $2*$, Blowfish (Unix)
+59-md5(md5(md5($pass)))
+60-md5($salt.md5($pass))
+61-md5($salt.$pass.$salt)
+62-md5(md5($pass).md5($salt))
+63-md5($salt.md5($salt.$pass))
+64-md5($salt.md5($pass.$salt))
+65-md5(strtoupper(md5($pass)))
+66-md5(sha1($pass))
+67-md5(sha1($pass).$salt)
+68-sha1(sha1($pass))
+69-sha1(sha1($pass).$salt)
+70-sha1($salt.sha1($pass))
+71-sha1(md5($pass))
+72-sha1(md5($pass).$salt)
+73-iSCSI CHAP authentication, MD5(CHAP)
+74-sha1($salt.$pass.$salt)
+75-sha1(sha1($salt.$pass.$salt))
+76-Half MD5
+77-Password Safe v3
+78-IKE-PSK MD5
+79-IKE-PSK SHA1
+80-NetNTLMv1 / NetNTLMv1+ESS
+81-NetNTLMv2
+82-Cisco-IOS type 4 (SHA256)
+83-Samsung Android Password/PIN
+84-RIPEMD-160
+85-Whirlpool
+86-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES (legacy)
+87-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent (legacy)
+88-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Twofish (legacy)
+89-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES-Twofish (legacy)
+90-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES-Twofish-Serpent (legacy)
+91-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent-AES (legacy)
+92-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent-Twofish-AES (legacy)
+93-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Twofish-Serpent (legacy)
+94-TrueCrypt 5.0+ SHA512 + AES (legacy)
+95-TrueCrypt 5.0+ SHA512 + Serpent (legacy)
+96-TrueCrypt 5.0+ SHA512 + Twofish (legacy)
+97-TrueCrypt 5.0+ SHA512 + AES-Twofish (legacy)
+98-TrueCrypt 5.0+ SHA512 + AES-Twofish-Serpent (legacy)
+99-TrueCrypt 5.0+ SHA512 + Serpent-AES (legacy)
+100-TrueCrypt 5.0+ SHA512 + Serpent-Twofish-AES (legacy)
+press 0 to continue
 """)#menu
 hash=input("Please Enter hash type to find its mode or select from the menu\n")#hash
 
@@ -114,7 +176,7 @@ if (hash=='phpass, WordPress (MD5),Joomla (MD5)') | (hash=='19') :
         print ('\033[31m'+"your mode is 400 ")
 if (hash=='phpass, phpBB3 (MD5)') | (hash=='20') :
         print ('\033[31m'+"your mode is 400 ")
-if (hash=="md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)^2") | (hash=='21'):
+if (hash=="md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)") | (hash=='21'):
         print ('\033[31m'+"your mode is 500 ")
 if (hash=="Juniper IVE") | (hash=='22'):
         print ('\033[31m'+"your mode is 501 ")
@@ -154,6 +216,147 @@ if (hash =='Apache $apr1$ MD5, md5apr1, MD5 (APR) 2') | (hash =='39') :
        print ('\033[31m'+"your mode is 1600")
 if (hash =='SHA2-512') | (hash =='40') : 
        print ('\033[31m'+"your mode is 1700")
+if (hash =='sha512($pass.$salt)') | (hash =='41') : 
+       print ('\033[31m'+"your mode is 1710")
+if (hash =='sha512($salt.$pass)') | (hash =='42') : 
+       print ('\033[31m'+"your mode is 1720")
+if (hash =='sha512(utf16le($pass).$salt)') | (hash =='43') : 
+       print ('\033[31m'+"your mode is 1730")
+if (hash =='sha512($salt.utf16le($pass))') | (hash =='44') : 
+       print ('\033[31m'+"your mode is 1740")
+if (hash =='HMAC-SHA512 (key = $pass)') | (hash =='45') : 
+       print ('\033[31m'+"your mode is 1750")
+if (hash =='HMAC-SHA512 (key = $salt)') | (hash =='46') : 
+       print ('\033[31m'+"your mode is 1760")
+if (hash =='sha512(utf16le($pass))') | (hash =='47') : 
+       print ('\033[31m'+"your mode is 1770")
+if (hash =='sha512crypt $6$, SHA512 (Unix)') | (hash =='48') : 
+       print ('\033[31m'+"your mode is 1800")
+if (hash =='STDOUT') | (hash =='49') : 
+       print ('\033[31m'+"your mode is  2000")
+if (hash =='Domain Cached Credentials 2 (DCC2), MS Cache 2') | (hash =='50') : 
+       print ('\033[31m'+"your mode is  2100")
+if (hash=='Cisco-PIX MD5') | (hash=='51'):
+       print ('\033[31m'+"your mode is  2400")
+if (hash=='Cisco-ASA MD5') | (hash=='52'):
+       print ('\033[31m'+"your mode is  2410")
+if (hash=='WPA-EAPOL-PBKDF2') | (hash=='53'):
+       print ('\033[31m'+"your mode is 2500")
+if (hash=='WPA-EAPOL-PMK') | (hash=='54'):
+       print ('\033[31m'+"your mode is 2501")
+if (hash=='md5(md5($pass))') | (hash=='55'):
+       print ('\033[31m'+"your mode is 2600")
+if (hash=='LM') | (hash=='56'):
+       print ('\033[31m'+"your mode is 3000")
+if (hash=='Oracle H: Type (Oracle 7+)') | (hash=='57'):
+       print ('\033[31m'+"your mode is 3000")
+if (hash=='bcrypt $2*$, Blowfish (Unix)') | (hash=='58'):
+       print ('\033[31m'+"your mode is 3200")
+if (hash=='md5(md5(md5($pass)))') | (hash=='59'):
+       print ('\033[31m'+"your mode is 3500")
+if (hash=='md5($salt.md5($pass))') | (hash=='60'):
+       print ('\033[31m'+"your mode is 3710")
+if (hash=='md5($salt.$pass.$salt)') | (hash=='61'):
+       print ('\033[31m'+"your mode is 3800")
+if (hash=='md5(md5($pass).md5($salt))') | (hash=='62'):
+       print ('\033[31m'+"your mode is 3910")
+if (hash=='md5($salt.md5($salt.$pass))') | (hash=='63'): 
+       print ('\033[31m'+"your mode is 4010")
+if (hash=='md5($salt.md5($pass.$salt))') | (hash=='64'): 
+       print ('\033[31m'+"your mode is 4110")
+if (hash=='md5(strtoupper(md5($pass)))') | (hash=='65'): 
+       print ('\033[31m'+"your mode is 4300")
+if (hash=='md5(sha1($pass))') | (hash=='66'):  
+       print ('\033[31m'+"your mode is 4400")
+if (hash=='md5(sha1($pass).$salt)') | (hash=='67'):  
+       print ('\033[31m'+"your mode is 4410")
+if (hash=='sha1(sha1($pass))') | (hash=='68'):  
+       print ('\033[31m'+"your mode is 4500")
+if (hash=='sha1(sha1($pass).$salt)') | (hash=='69'):  
+       print ('\033[31m'+"your mode is 4510")
+if (hash=='sha1($salt.sha1($pass))') | (hash=='70'):  
+       print ('\033[31m'+"your mode is 4520")
+if (hash=='sha1(md5($pass))') | (hash=='71'):  
+       print ('\033[31m'+"your mode is 4700")
+if (hash=='sha1(md5($pass).$salt)') | (hash=='72'):  
+       print ('\033[31m'+"your mode is 4710")
+if (hash=='iSCSI CHAP authentication, MD5(CHAP)') | (hash=='73'):  
+       print ('\033[31m'+"your mode is 4800")
+if (hash=='sha1($salt.$pass.$salt)') | (hash=='74'):  
+       print ('\033[31m'+"your mode is 4900")
+if (hash=='sha1(sha1($salt.$pass.$salt))') | (hash=='75'):  
+       print ('\033[31m'+"your mode is 5000")
+if (hash=='Half MD5') | (hash=='76'):  
+       print ('\033[31m'+"your mode is 5100")
+if (hash=='Password Safe v3') | (hash=='77'):  
+       print ('\033[31m'+"your mode is 5200")
+if (hash=='IKE-PSK MD5') | (hash=='78'):   
+       print ('\033[31m'+"your mode is 5300")
+if (hash=='IKE-PSK SHA1 ') | (hash=='79'):   
+       print ('\033[31m'+"your mode is 5400")
+if (hash=='NetNTLMv1 / NetNTLMv1+ESS') | (hash=='80'):   
+       print ('\033[31m'+"your mode is 5500")
+if (hash=='NetNTLMv2') | (hash=='81'):  
+       print ('\033[31m'+"your mode is 5600")
+if (hash=='Cisco-IOS type 4 (SHA256)') | (hash=='82'):  
+       print ('\033[31m'+"your mode is 5700")
+if (hash=='Samsung Android Password/PIN') | (hash=='83'):  
+       print ('\033[31m'+"your mode is 5800")
+if (hash=='RIPEMD-160') | (hash=='84'):  
+       print ('\033[31m'+"your mode is 6000")
+if (hash=='Whirlpool') | (hash=='85'):  
+       print ('\033[31m'+"your mode is 6100")
+if (hash=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES (legacy)') | (hash=='86'):  
+       print ('\033[31m'+"your mode is 6211")
+if (hash=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent (legacy)') | (hash=='87'):  
+       print ('\033[31m'+"your mode is 6211")
+if (hash=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Twofish (legacy)') | (hash=='88'):  
+       print ('\033[31m'+"your mode is 6211")
+if (hash=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES-Twofish (legacy)') | (hash=='89'):  
+       print ('\033[31m'+"your mode is 6212")
+if (hash=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES-Twofish-Serpent (legacy)') | (hash=='90'):  
+       print ('\033[31m'+"your mode is 6213")
+if (hash=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent-AES (legacy)') | (hash=='91'):  
+       print ('\033[31m'+"your mode is 6212")
+if (hash=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent-Twofish-AES (legacy)') | (hash=='92'):  
+       print ('\033[31m'+"your mode is 6213")
+if (hash=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Twofish-Serpent (legacy)') | (hash=='93'):  
+       print ('\033[31m'+"your mode is 6212")
+if (hash=='TrueCrypt 5.0+ SHA512 + AES (legacy)') | (hash=='94'):  
+       print ('\033[31m'+"your mode is 6221")
+if (hash=='TrueCrypt 5.0+ SHA512 + Serpent (legacy)') | (hash=='95'):  
+       print ('\033[31m'+"your mode is 6221")
+if (hash=='TrueCrypt 5.0+ SHA512 + Twofish (legacy)') | (hash=='96'):  
+       print ('\033[31m'+"your mode is 6221")
+if (hash=='TrueCrypt 5.0+ SHA512 + AES-Twofish (legacy)') | (hash=='97'):  
+       print ('\033[31m'+"your mode is 6222")
+if (hash=='TrueCrypt 5.0+ SHA512 + AES-Twofish-Serpent (legacy)') | (hash=='98'):  
+       print ('\033[31m'+"your mode is 6223")
+if (hash=='TrueCrypt 5.0+ SHA512 + Serpent-AES (legacy)') | (hash=='99'):  
+       print ('\033[31m'+"your mode is 6222")
+if (hash=='TrueCrypt 5.0+ SHA512 + Serpent-Twofish-AES (legacy)') | (hash=='100'):  
+       print ('\033[31m'+"your mode is 6223")
+if (hash=='0') :
+   os.system("clear")
+   print("""
+   101-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ """)
+
 
 
 
