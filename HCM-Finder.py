@@ -338,27 +338,66 @@ if (hash=='TrueCrypt 5.0+ SHA512 + Serpent-Twofish-AES (legacy)') | (hash=='100'
        print ('\033[31m'+"your mode is 6223")
 if (hash=='0') :
    os.system("clear")
-   print("""
-   101-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   print("""101-TrueCrypt 5.0+ Whirlpool + AES (legacy)
+102-TrueCrypt 5.0+ Whirlpool + Serpent (legacy)
+103-TrueCrypt 5.0+ Whirlpool + Twofish (legacy)
+104-TrueCrypt 5.0+ Whirlpool + AES-Twofish (legacy)
+105-TrueCrypt 5.0+ Whirlpool + AES-Twofish-Serpent (legacy)
+106-TrueCrypt 5.0+ Whirlpool + Serpent-AES (legacy)
+107-TrueCrypt 5.0+ Whirlpool + Serpent-Twofish-AES (legacy)
+108-TrueCrypt 5.0+ Whirlpool + Twofish-Serpent (legacy)
+109-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES + boot (legacy)
+110-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent + boot (legacy)
+111-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES-Twofish + boot (legacy)
+112-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES-Twofish-Serpent + boot (legacy)
+113-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent-AES + boot (legacy)
+114-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent-Twofish-AES + boot (legacy)
+115-TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Twofish-Serpent + boot (legacy)
+116-AIX {smd5}
+117-AIX {ssha256}
+118-AIX {ssha512}
 
  """)
+hash2=input("Please Enter hash type to find its mode or select from the menu\n")#hash2
 
 
 
+if (hash2=='TrueCrypt 5.0+ Whirlpool + AES (legacy)') | (hash2=='101'):  
+       print ('\033[31m'+"your mode is 6231")
+if (hash2=='TrueCrypt 5.0+ Whirlpool + Serpent (legacy)') | (hash2=='102'):  
+       print ('\033[31m'+"your mode is 6231")
+if (hash2=='TrueCrypt 5.0+ Whirlpool + Twofish (legacy)') | (hash2=='103'):  
+       print ('\033[31m'+"your mode is 6231")
+if (hash2=='TrueCrypt 5.0+ Whirlpool + AES-Twofish (legacy)') | (hash2=='104'):  
+       print ('\033[31m'+"your mode is 6232")
+if (hash2=='TrueCrypt 5.0+ Whirlpool + AES-Twofish-Serpent (legacy)') | (hash2=='105'):  
+       print ('\033[31m'+"your mode is  6233 ")
+if (hash2=='TrueCrypt 5.0+ Whirlpool + Serpent-AES (legacy)') | (hash2=='106'):  
+       print ('\033[31m'+"your mode is  6232 ")
+if (hash2=='TrueCrypt 5.0+ Whirlpool + Serpent-Twofish-AES (legacy)') | (hash2=='107'):  
+       print ('\033[31m'+"your mode is  6233 ")
+if (hash2=='TrueCrypt 5.0+ Whirlpool + Twofish-Serpent (legacy)') | (hash2=='108'):  
+       print ('\033[31m'+"your mode is  6232 ")
+if (hash2=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES + boot (legacy)') | (hash2=='109'):  
+       print ('\033[31m'+"your mode is  6241 ")
+if (hash2=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent + boot (legacy)') | (hash2=='110'):  
+       print ('\033[31m'+"your mode is  6241 ")
+if (hash2=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES-Twofish + boot (legacy)') | (hash2=='111'):  
+       print ('\033[31m'+"your mode is  6242 ")
+if (hash2=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + AES-Twofish-Serpent + boot (legacy)') | (hash2=='112'):  
+       print ('\033[31m'+"your mode is  6243 ")
+if (hash2=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent-AES + boot (legacy)') | (hash2=='113'):  
+       print ('\033[31m'+"your mode is  6242 ")
+if (hash2=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Serpent-Twofish-AES + boot (legacy)') | (hash2=='114'):  
+       print ('\033[31m'+"your mode is  6243 ")
+if (hash2=='TrueCrypt 5.0+ PBKDF2-HMAC-RIPEMD160 + Twofish-Serpent + boot (legacy)') | (hash2=='115'):  
+       print ('\033[31m'+"your mode is  6242 ")
+if (hash2=="AIX {smd5}") | (hash2=='116'):  
+       print ('\033[31m'+"your mode is  6300 ")
+if (hash2=="AIX {ssha256}") | (hash2=='117'):  
+       print ('\033[31m'+"your mode is  6400 ")
+if (hash2=="AIX {ssha512}") | (hash2=='118') :
+       print ('\033[31m'+"your mode is  6500 ")
 
 
 
